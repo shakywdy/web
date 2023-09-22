@@ -3,7 +3,7 @@
  * @Author: shaky shaky
  * @Date: 2023-09-21 20:26:54
  * @LastEditors: shaky shaky
- * @LastEditTime: 2023-09-22 13:05:59
+ * @LastEditTime: 2023-09-22 20:43:15
  * @FilePath: \web-project\control.php
  * @Description: 
  * 
@@ -11,7 +11,9 @@
  */
 
 //  database connection
-function loadingdb() {
+
+function loadingdb() 
+{
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -26,8 +28,10 @@ function loadingdb() {
 
 // 
 
-function studentreg($name, $id, $year, $programe, $password, $db)
+function studentreg($name, $id, $year, $programe, $password)
 {
+    $db = loadingdb();
+
     // 将学生信息插入学生表
     $sql = "INSERT INTO students (name, id, year, programe, password) 
     VALUES ('$name', '$id', '$year', '$programe', '$password')";
@@ -42,7 +46,8 @@ function studentreg($name, $id, $year, $programe, $password, $db)
         VALUES ('$id', '$password', '$type')";
         
         if ($db->query($userSql) === TRUE) {
-            $db->close(); // 关闭数据库连接
+            $db->close(); 
+            header("Location: login.php");
             exit();
         } else {
             // 处理用户表插入失败的情况
@@ -52,48 +57,38 @@ function studentreg($name, $id, $year, $programe, $password, $db)
     }
 }
 
-function checkpassword($id, $password)
+
+
+function checktype($db, $result, $id)
 {
-    $db = loadingdb();
+    $row = mysqli_fetch_assoc($result);
+    $type = $row['type'];
 
-    
-    // users list use id:name
-    $query = "SELECT * FROM users WHERE id = '$id' AND password = '$password'";
+    if ($type == 'student') {
+      
+        //session ----- checklogin
+        session_start();
+        $_SESSION['user_id'] = $id;
+        // echo "student";
+        // update students last login
+        $currentTime = date('Y-m-d H:i:s');
+        $insertQuery = "UPDATE students SET lastlogin = '$currentTime' WHERE id = '$id'";
+        mysqli_query($db, $insertQuery);
 
-    $result = mysqli_query($db, $query);
 
-    if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        $type = $row['type'];
-
-        if ($type == 'student') {
-            // 学生账号登录
-            echo "学生账号登录";
-
-            // 更新学生最后登录时间
-            $currentTime = date('Y-m-d H:i:s');
-            $insertQuery = "UPDATE students SET lastlogin = '$currentTime' WHERE id = '$id'";
-            mysqli_query($db, $insertQuery);
-        } 
-
-        elseif ($type == 'teacher')
-         {
-     
-            echo "老师账号登录";
-
-           
-        } 
-        else
-         {
-            // 未知类型账号
-            echo "未知类型账号！";
-        }
-    } 
-
-    else {
-        // 用户名和密码不匹配
-        echo "用户名和密码不匹配！";
+        header("Location: student-index.php");
+      
     }
 
     mysqli_close($db);
+}
+function studentchecklogin()
+{
+    session_start();
+    if (!isset($_SESSION['user_id'])) {
+   
+        header("Location: login.php");
+        exit();
+    }
+    session_destroy();
 }

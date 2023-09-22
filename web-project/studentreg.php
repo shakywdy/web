@@ -21,9 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $year = $_POST['year'];
     $programe = $_POST['programe'];
     $password = $_POST['password'];
-    
-    $db = loadingdb(); //give  db
-    studentreg($name, $id, $year, $programe, $password, $db);
+    studentreg($name, $id, $year, $programe, $password);
 }
 
 ?>
