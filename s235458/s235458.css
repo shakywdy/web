@@ -1,0 +1,247 @@
+
+body{
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #000000, #06b164); 
+    padding: 0;
+   
+}
+
+header{
+    display: flex;
+    height: 4vw;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(255, 254, 254, 0.851);
+
+}
+.input:focus{
+    color: #119beb;
+}
+
+
+ .header1{
+   margin-left: 1vw;
+}
+.header1 img{
+    width: 90%;
+    height: 90%;
+}
+
+ /* reg-box */
+.reg-container{
+    display: flex;
+}
+.logo{
+    margin-top: 9vw;
+    text-align: center;
+    width: 40vw;
+}
+.logo h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    line-height: 0; 
+    font-size: 8vw;
+    color: antiquewhite;
+    text-shadow: 2px -2px #000000,-2px 2px #000000, -10px 10px 10px #0f000080;
+  
+}
+.reg-box{
+    width: 45vw;
+    margin-top: 2vw;
+    height: 43vw;
+    margin-left: 12vw;
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    box-shadow: rgb(15, 15, 15) 0px 0px 5px;
+
+
+}
+
+
+.reg-header{
+
+    display: flex;
+    text-align: center;
+
+    width: 100%;
+    background-color: #16db65;
+    height: 4vw;
+    box-shadow: rgb(12, 209, 58) 0px 0px 30px;
+   
+}
+.reg-header a {
+    text-transform: uppercase;
+    margin: auto;
+    font-size: 2vw;
+    font-family: "Gill Sans", sans-serif;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px -1px #565454,-1px 1px #ffffff, -5px 5px 5px #0f000080;
+}
+
+
+
+/*  tranform and text */
+.reg-linecontainer{
+    display: flex;
+    margin-bottom: 1vw;
+
+}
+.name{
+    margin-left: 2vw;
+}
+.name p{
+    margin-left: 0vw;
+    margin-bottom: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.8vw;
+   table-layout: 1px;
+   
+}
+/*  tranform and text end */
+
+/* line 1 css  */
+.nameinput{
+    width: 10vw;
+    height: 3vw;
+    font-size: 2vw;
+    text-align: center;
+    font-family: system-ui;
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.452);  
+}
+
+.birthinput{
+    width: 15vw;
+    height: 3.2vw;
+    font-family: system-ui;
+    font-size: 2vw;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.452);
+}
+.lint1-select{
+    width: 10vw;
+    height: 3.4vw;
+    font-size: 2vw;
+    text-align: center;
+    font-family: system-ui;
+    border: #000000 solid;
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.452);
+}
+
+/* line 1 css  end  */
+
+/* line 2 css   */
+.password-input{
+    width: 18vw;
+    height: 3.2vw;
+    font-family: system-ui;
+    font-size: 1.3vw;
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.452);
+}
+/* line 2 css  end  */
+
+/* line 3 css   */
+.learns{
+    margin-left: 2vw;
+    width: auto;
+    
+}
+.learns p{
+    margin-left: 0vw;
+    margin-bottom: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.3vw;
+    
+}
+.checkbox-container{
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.452);
+    border: #000000 solid;
+    width: 28vw;
+    font-family: system-ui;
+    font-size: 1.5vw;
+    height: 10vw;
+}
+.year{
+    margin-left: 3vw;
+    margin-top: -0.5vw;
+}
+.year p{
+    margin-left: 0vw;
+    margin-bottom: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5vw;
+    text-shadow: 1px -1px #565454,-1px 1px #ffffff, -5px 5px 5px #0f000080;
+}
+.year-container{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.452);
+    border: #000000 solid;
+    font-family: system-ui;
+    width: 8vw;
+    height: 10vw
+}
+.radio-box{
+    margin-top: 0.8vw;
+    font-size: 1.5vw;
+}
+/* line 3 css end  */
+.submit{
+   display: flex;
+}
+.submitbutton{
+    margin: auto;
+    margin-top: 5%;
+    width: 40vw;
+    height: 4vw;
+    font-size: 2vw;
+    text-transform: uppercase;
+    background-color: #c1c1c1e6;
+    font-family: "Gill Sans", sans-serif;
+    transition: 0.5s ease;
+    border-radius: 2vh;
+    color: #292929;
+    text-shadow: 1px -1px #565454,-1px 1px #ffffff, -5px 5px 5px #0f000080;
+}
+.submitbutton:hover{
+    background-color: #28ef60;
+    color: antiquewhite;
+    font-size: 2.2vw;
+    box-shadow: rgb(7, 241, 50) 0px 0px 30px;
+    
+
+}
+input[type=checkbox] {
+
+    width: 15px;
+    height: 15px;
+    margin-right: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+
+  }
+   
+  input[type=checkbox]:after {
+    display: inline-block;
+    content: "";
+    width: 19px;
+    height: 19px;
+    border-radius: 3px;
+    background: #fff;
+    border: 2px solid #070707;
+  }
+   
+  input[type=checkbox]:checked:after {
+    content: "✓";
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #119beb;
+    text-align: center;
+   }
+ /* reg-box end */
