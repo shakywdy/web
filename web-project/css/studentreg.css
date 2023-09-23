@@ -1,0 +1,70 @@
+
+/* bootstrap tooltip */
+.valid-tooltip {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    z-index: 5;
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875rem;
+    color: #fff;
+    background-color: rgba(40, 167, 69, 0.8);
+    border-radius: .25rem;
+    padding: .5rem;
+  }
+
+  .is-valid ~ .valid-tooltip {
+    display: block;
+  }
+
+  .invalid-tooltip {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    z-index: 5;
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875rem;
+    color: #fff;
+    background-color: rgba(220, 53, 69, 0.8);
+    border-radius: .25rem;
+    padding: .5rem;
+  }
+
+  .is-invalid ~ .invalid-tooltip {
+    display: block;
+  }
+  /* bootstrap tooltip end */
+  .form-container {
+    background-image: linear-gradient(to bottom, #ffffff, #b8eea3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 将容器高度设置为视窗高度，使其居中显示 */
+  }
+  .form-container form {
+    max-width: 100vh; /* 设置最大宽度 */
+    height: 80vh;
+    padding: 10px;
+    background-color: #eeeeee;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+
+  }
+  .tittle{
+    font-size: 1.5vw;
+    text-align: center;
+  }
+
+  header{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+  }
+
+  
