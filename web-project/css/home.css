@@ -8,7 +8,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#f3e7e9,#d5f1d4);
+    background: linear-gradient(#ffffff,#d5f1d4);
 }
 .container{
     background-color: #fff;
@@ -162,5 +162,40 @@ input:focus::placeholder{
     background-color: #2df400;
     color: #000000;
 }
-/* ////tooltip */
 
+.error-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 700px;
+    z-index: 9999;
+}
+
+.alert {
+    position: relative;
+    padding: 1rem 1.25rem;
+    border-radius: 0.25rem;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    text-align: center;
+    
+}
+
+.alert strong {
+    font-size: 24px;
+}
+
+.alert #alerttext {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.alert .btn-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #721c24;
+}

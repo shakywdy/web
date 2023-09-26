@@ -2,9 +2,9 @@
 /*
  * @Author: shaky shaky
  * @Date: 2023-09-21 20:26:54
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-09-26 00:39:32
- * @FilePath: /web-project/control.php
+ * @LastEditors: shaky shaky
+ * @LastEditTime: 2023-09-26 14:52:46
+ * @FilePath: \web-project\control.php
  * @Description: 
  * 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -38,19 +38,12 @@ function studentreg($id, $name, $year, $programe, $password)
 
     if ($result->num_rows > 0) {
         // 存在相同的学生ID，处理失败情况
-        echo '<div class="alert alert-danger alert-dismissible 
-        fade show d-flex flex-column align-items-center justify-content-center
-         text-center" role="alert" style="position: fixed; top: 50%; left: 50%; 
-         transform: translate(-50%, -50%); max-width: 700px; z-index: 9999;"> 
-
-        <strong style="font-size: 24px;">Error!</strong>
-        <div style="margin-top: 10px;  
-        font-size: 20px;">
-        Your account already exists. </div>  
-        <div style="margin-top: 10px;  
-        font-size: 20px;"></div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>';
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var errorMessage = document.querySelector(".error-message");
+            errorMessage.style.display = "block";
+        });
+        </script>';
 
         return;
     }
@@ -70,19 +63,12 @@ function studentreg($id, $name, $year, $programe, $password)
         if ($db->query($userSql) === TRUE) {
 
             $db->close(); 
-            echo '<div class="alert alert-success alert-dismissible 
-        fade show d-flex flex-column align-items-center justify-content-center
-         text-center" role="alert" style="position: fixed; top: 50%; left: 50%; 
-         transform: translate(-50%, -50%); max-width: 700px; z-index: 9999;"> 
-
-        <strong style="font-size: 24px;">Error!</strong>
-        <div style="margin-top: 10px;  
-        font-size: 20px;">
-        Your account already exists. </div>  
-        <div style="margin-top: 10px;  
-        font-size: 20px;"></div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>';
+            echo '<script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var errorMessage = document.querySelector(".error-message");
+                errorMessage.style.display = "block";
+            });
+        </script>';
 
          
         } 

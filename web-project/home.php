@@ -2,8 +2,8 @@
 /*
  * @Author: shaky
  * @Date: 2023-09-24 15:30:55
- * @LastEditTime: 2023-09-26 00:30:10
- * @FilePath: /web-project/home.php
+ * @LastEditTime: 2023-09-26 16:11:41
+ * @FilePath: \web-project\home.php
  * Intimat: jason
  * Copyright (c) 2023 by shakywdy@gmail.com All Rights Reserved. 
  */
@@ -21,25 +21,21 @@ require_once 'control.php';
      if (mysqli_num_rows($result) == 1) {
          checktype($db, $result, $id);
         //   call control.php function
-     } 
-     else 
-     { 
-        echo '<div class="alert alert-danger alert-dismissible 
-        fade show d-flex flex-column align-items-center justify-content-center
-         text-center" role="alert" style="position: fixed; top: 50%; left: 50%; 
-         transform: translate(-50%, -50%); max-width: 700px; z-index: 9999;"> 
-        <strong style="font-size: 24px;">Error!</strong>
-        <div style="margin-top: 10px;  
-        font-size: 20px;">
-        Your id and password dont match</div>
-        <div style="margin-top: 10px;  
-        font-size: 20px;">
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>';
-         mysqli_close($db);  
-        //  登錄成功關閉sql在control.php
-     } 
+    } else {
+        // psw and id error alert
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var errorMessage = document.querySelector(".error-message");
+            var alertText = document.getElementById("alerttext");
+            if (alertText) {
+              alertText.textContent = "Your id and password don\'t match";
+            }
+            errorMessage.style.display = "block";
+        });
+    </script>';
+        mysqli_close($db);
+        // 登录成功关闭 SQL 连接在 control.php
+    }
     }
     elseif (isset($_POST['regsubmit'])) {   
         $id = $_POST['regid'];
@@ -57,13 +53,25 @@ require_once 'control.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <!-- alert  -->
+    <div class="error-message">
+      <div class="alert" role="alert"> 
+    <strong>Error!</strong>
+    <div id="alerttext">
+       
+    </div>
+    <button type="button" class="btn-close" onclick="hideErrorMessage()" aria-label="Close"></button>
+  </div>
+  </div>
+
+  <div class="container">
         <div class="form-box">
 
         
@@ -143,13 +151,20 @@ require_once 'control.php';
         login_box.classList.remove('hidden');
     })
     // slider form end 
+    // close button --- display none
+    function hideErrorMessage() {
+      var errorMessage = document.querySelector(".error-message");
+      errorMessage.style.display = "none";
+    }
+    // alert
     function validateForm() {
         var password1 = document.getElementById("regpassword").value;
         var password2 = document.getElementById("regpassword2").value;
 
         if (password1 !== password2) {
-            alert("Passwords do not match. Please try again.");
-            return false; 
+            var errorMessage = document.querySelector(".error-message");
+        errorMessage.style.display = "block";
+        return false;
         }
 
         return true; 
