@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    background: linear-gradient(#ffffff,#d5f1d4);
+  }
+  
+  .left {
+    background-color: rgba(127, 255, 212, 0);
+    width: 10%;
+    height: 100vh;
+  }
+  .list-group{
+    margin-top: 150px;
+  }
+  
+  .right {
+    display: flex;
+    width: 90%;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+  }
+  /* header */
+  .top {
+    height: 82px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
+    padding: 0 10px;
+  }
+  .message-button{
+    height: 82px;
+    margin-left: auto;
+  }
+  /* .message-box */
+  .message-box {
+    margin-top: 8px;
+    max-height: 400px; 
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    border: #5b5b5b solid;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    display: none;
+    flex-direction: column;
+  }
+  
+  .message-box-header {
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000000; 
+  }
+  
+  .message-box-header p {
+    margin: auto;
+  }
+  
+  .close-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #00000000;
+    transition: background-color 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background-color: red;
+  }
+  
+  .message-box-content {
+    background-color: #ffffff;
+    overflow: auto;
+    flex-grow: 1;
+  }
+  
+  .message-box-content ul {
+    list-style: none;
+    padding: 0;
+
+    margin: 0;
+  }
+  
+  .message-box-content li {
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-bottom: 1px solid #000000; 
+  }
+    /* .message-box end*/
+  .btn-group{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .right-main {
+    display: flex;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    padding-top: 90px; 
+    box-sizing: border-box;
+  }
+  .right-main iframe{
+    height: 100%;
+    width: 100%;
+    border: none;
+  }
