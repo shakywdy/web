@@ -2,9 +2,9 @@
 /*
  * @Author: shaky shaky
  * @Date: 2023-09-21 20:26:54
- * @LastEditors: shaky shaky
- * @LastEditTime: 2023-09-23 13:41:01
- * @FilePath: \web-project\control.php
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-09-26 00:39:32
+ * @FilePath: /web-project/control.php
  * @Description: 
  * 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -46,26 +46,18 @@ function studentreg($id, $name, $year, $programe, $password)
         <strong style="font-size: 24px;">Error!</strong>
         <div style="margin-top: 10px;  
         font-size: 20px;">
-        Your account already exists. </div>
-        
+        Your account already exists. </div>  
         <div style="margin-top: 10px;  
-        font-size: 20px;">
-        You can <a href="login.php" class="alert-link">log in</a> directly </div>
+        font-size: 20px;"></div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>';
 
-      echo '<script>
-        document.querySelector(".alert .btn-close").addEventListener("click", function() {
-          document.querySelector(".alert").remove(); 
-        });
-      </script>';
         return;
     }
 
     // 将学生信息插入学生表
     $sql = "INSERT INTO students (id, name, year, programe, password) 
     VALUES ('$id', '$name', '$year', '$programe', '$password')";
-    
     if ($db->query($sql) === TRUE) {
         // 获取刚插入的学生ID
         $id = $db->insert_id;
@@ -74,19 +66,28 @@ function studentreg($id, $name, $year, $programe, $password)
         $type = 'student';
         $userSql = "INSERT INTO users (id, password, type) 
         VALUES ('$id', '$password', '$type')";
-        
+      
         if ($db->query($userSql) === TRUE) {
-            $db->close(); 
-            header("Location: login.php");
-            exit();
-        } else {
-            // 处理用户表插入失败的情况
-        }
-    } else {
-        // 处理学生表插入失败的情况
-    }
-}
 
+            $db->close(); 
+            echo '<div class="alert alert-success alert-dismissible 
+        fade show d-flex flex-column align-items-center justify-content-center
+         text-center" role="alert" style="position: fixed; top: 50%; left: 50%; 
+         transform: translate(-50%, -50%); max-width: 700px; z-index: 9999;"> 
+
+        <strong style="font-size: 24px;">Error!</strong>
+        <div style="margin-top: 10px;  
+        font-size: 20px;">
+        Your account already exists. </div>  
+        <div style="margin-top: 10px;  
+        font-size: 20px;"></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+
+         
+        } 
+}
+}
 function checktype($db, $result, $id)
 {
     $row = mysqli_fetch_assoc($result);
@@ -102,10 +103,13 @@ function checktype($db, $result, $id)
         $currentTime = date('Y-m-d H:i:s');
         $insertQuery = "UPDATE students SET lastlogin = '$currentTime' WHERE id = '$id'";
         mysqli_query($db, $insertQuery);
-
-
         header("Location: student-index.php");
-      
+    }
+    elseif ($type == 'staff'){
+        session_start();
+        $_SESSION['user_id'] = $id;
+        header("Location: staff-index.php");
+
     }
 
     mysqli_close($db);
@@ -115,8 +119,18 @@ function studentchecklogin()
     session_start();
     if (!isset($_SESSION['user_id'])) {
    
-        header("Location: login.php");
+        header("Location: home.php");
         exit();
     }
-    session_destroy();
+    $user_id = $_SESSION['user_id'];
+
+    $db = loadingdb();
+    $query = "SELECT type FROM users WHERE id = '$user_id'";
+    $result = mysqli_query($db, $query);
+    $row = mysqli_fetch_assoc($result);
+   
+    if ($row['type'] !== 'student') {
+        header("Location: home.php"); 
+        exit();
+    }
 }
