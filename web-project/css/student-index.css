@@ -16,14 +16,14 @@
     flex-direction: column;
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
     z-index: 3;
-    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
   }
   .leftheader{
     background-color: #ffffff;
     height: 82px;
     display: flex;
-    margin-bottom: auto;
+    margin-bottom: 50px;
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
   }
   .leftheader img{
@@ -31,11 +31,29 @@
     height: 70px;
     margin: auto;
   }
-  .lgb{
-    margin-top: auto;
+   .left-list{
+    font-size: 25px;
+   }
+   .left-list button{
     height: 60px;
-    margin-bottom: 90px;
+    width: 100%;
     border: none;
+    background-color: rgba(240, 248, 255, 0);
+    transition: background-color 0.3s ease;
+   }
+   .left-list button:hover{
+    background-color: rgba(211, 211, 211, 0.439);
+   }
+   .left-list button a{
+    color: #414452;
+    text-decoration: none;
+   }
+
+
+  .lgb{
+    height: 60px;
+    border: none;
+    margin-top: 500px;
     background-color: rgba(240, 248, 255, 0);
     transition: background-color 0.3s ease;
     }
@@ -44,8 +62,8 @@
     }
    .lgb a{
     font-size: 30px;
-    color: #1d1d1d;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #414452;
+
     text-decoration-style: double;
    }
 

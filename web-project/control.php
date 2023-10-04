@@ -2,9 +2,9 @@
 /*
  * @Author: shaky shaky
  * @Date: 2023-09-21 20:26:54
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-10-01 02:03:40
- * @FilePath: /web-project/control.php
+ * @LastEditors: shaky shaky
+ * @LastEditTime: 2023-10-04 00:42:12
+ * @FilePath: \web-project\control.php
  * @Description: 
  * 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -99,7 +99,7 @@ function checktype($db, $result, $id)
         $insertQuery = "UPDATE students SET lastlogin = '$currentTime' WHERE id = '$id'";
         mysqli_query($db, $insertQuery);
         //xml
-        $xml = simplexml_load_file("student.xml");
+        $xml = simplexml_load_file("xml/student.xml");
     
         $idExists = false;
         foreach ($xml->student as $student) {
@@ -130,7 +130,7 @@ function checktype($db, $result, $id)
         }
     
         // 将 XML 数据保存到 student.xml 文件
-        $xml->asXML("student.xml");
+        $xml->asXML("xml/student.xml");
         header("Location: student-index.php");
     } 
     elseif ($type == 'staff') 

@@ -2,8 +2,8 @@
 /*
  * @Author: shaky
  * @Date: 2023-09-26 23:45:57
- * @LastEditTime: 2023-09-28 17:43:39
- * @FilePath: /web-project/student-index.php
+ * @LastEditTime: 2023-10-04 00:58:15
+ * @FilePath: \web-project\student-index.php
  * Intimat: jason
  * Copyright (c) 2023 by shakywdy@gmail.com All Rights Reserved. 
  */
@@ -41,20 +41,28 @@ if (isset($_SESSION['user_id'])) {
 		<meta charset="utf-8">
 		<title></title>
      <!-- bootstrap -->
-     
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/student-index.css">
 	</head>
 	<body>
+
+    <!-- header -->
     <div class="top">
+      <!-- green -->
        <div class="top-left"></div>
+        <!-- green end-->
+
+        <!-- yellow -->
        <div class="top-right">
        <button class="message-button" >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
         </svg>
         </button>
+      <!-- yellow end-->
+
+        <!-- message-box -->
         <div class="message-box" >
           <div class="message-box-header">
            <p>Notification</p> 
@@ -85,6 +93,8 @@ if (isset($_SESSION['user_id'])) {
           
           </div>
         </div>
+        
+        <!-- message-box end-->
 
         <!-- info setting -->
         <div class="btn-group">
@@ -99,26 +109,45 @@ if (isset($_SESSION['user_id'])) {
             <li><a class="dropdown-item" href="#">Log out</a></li>
           </ul>
         </div>
-       </div>
          <!-- info setting end-->
+       </div>
+      <!-- yellow end-->
+
     </div>
+    <!-- header end -->
 
-
+    <!-- this is a left list -->
     <div class="left">
       <div class="leftheader">    
       <img src="hsu-photo/hsulogo.png" >
+     </div>
+      <div class="left-list">
+      <button>
+        <a href="">HOME</a>
+        </button>
+        <button>
+        <a href="">HOME</a>
+        </button>
+        <button>
+        <a href="">HOME</a>
+        </button>
+        <button>
+        <a href="">HOME</a>
+        </button>
+
       </div>
-       <button class="lgb"><a href="">Log out</a></button>
-    </div>
-	 <div class="right">
+      <button class="lgb">
+        <a href="">Log out</a>
+        </button>
+    </div> 
     
-   
+	 <div class="right">
       <div class="right-main">
         <iframe src="student-index/student-home.html"></iframe>
       </div>
 
      </div> 
-    
+        <!-- this is a left list end -->
 	</body>
   <script src="js/student-index.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
