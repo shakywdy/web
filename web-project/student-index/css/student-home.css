@@ -14,7 +14,7 @@
 
   }
  .left{
-  width: 65%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@
 }
  
  .right {
-   width: 35%;
+   width: 30%;
    height: 100vh;
    display: flex;
    flex-direction: column;
@@ -54,36 +54,77 @@
 
  .right-top {
   background-color: #fdfbfb;
-  border: solid 0.5px;
   height: 60vh;
+  min-height: 60vh;
   width: 95%;
   margin: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .right-top-header {
-  font-size: 25px;
-  margin-top: 10px;
-  color: #414452;
+  font-size: 30px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  color: #fdfbfb;
+  background-color: #414452;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .right-top-content {
-  flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
-  overflow: auto;
+  justify-content: center;
+  overflow: auto; 
+
 }
 .right-card{
-  height: 70px;
-  width: 193px;
-  background-color: #bfc3bd;
-  margin: 10px;
+  height: 50px;
+  width: 80%;
+  display: flex;
+  background-image: linear-gradient( 135deg, #d9dfdc 10%, #d4d3d3 100%);
   border-radius: 5px;
+  margin-top: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
+  font-size: 1.5vw;
 }
+
+.right-card svg
+{
+ margin-right: auto;
+ margin-top: auto;
+ margin-bottom: auto;
+ margin-left: 15px;
+}
+.right-card span
+{
+margin: auto;
+}
+.right-card button{
+  margin-left: auto;
+  height: 100%; 
+  width: 50px;
+  background-color: rgb(118, 209, 118);
+  transition: background-color 0.3s ease;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+.right-card button:hover{
+  background-color: rgb(92, 160, 92);
+}
+
 
  .right-end {
    background-color: #fdfbfb;

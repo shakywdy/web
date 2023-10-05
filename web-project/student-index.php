@@ -2,8 +2,8 @@
 /*
  * @Author: shaky
  * @Date: 2023-09-26 23:45:57
- * @LastEditTime: 2023-10-05 14:51:38
- * @FilePath: /web-project/student-index.php
+ * @LastEditTime: 2023-10-05 23:18:49
+ * @FilePath: \web-project\student-index.php
  * Intimat: jason
  * Copyright (c) 2023 by shakywdy@gmail.com All Rights Reserved. 
  */
@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
     $row = mysqli_fetch_assoc($result);
     $studentName = $row['name'];
     // content
-    $queryContent = "SELECT id,content,name FROM message WHERE studentid = '$user_id'";
+    $queryContent = "SELECT id,content,type,name FROM message WHERE studentid = '$user_id'";
     $resultContent = mysqli_query($db, $queryContent);
 
   }
@@ -74,17 +74,33 @@ if (isset($_SESSION['user_id'])) {
               <?php
               if (mysqli_num_rows($resultContent) > 0) {
                 while ($row = mysqli_fetch_assoc($resultContent)) {
-                  echo '<ul id="message-list"><li data-id="' . $row['id'] . '">
-                  <div>
-                 <span>Be from:' . $row['name'] . '</span>
-                ' . $row['content'] . '
-                 </div> <button onClick="delthis(' . $row['id'] . ')" class="delete-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                 </svg></button></li>  </ul>';
-                }
-              } 
+                  echo '<ul id="message-list">
+                      <li data-id="' . $row['id'] . '">
+                          <div>
+                              <span>Be from:' . $row['name'] . '</span>
+                              ' . $row['content'] . '
+                          </div>';
+              
+                  if ($row['type'] == 1) {
+                      echo '<button class="okbutton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                    </svg></button>';
+                      echo '<button class="nobutton">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg></button>';
+                  }
+              
+                  echo '<button onClick="delthis(' . $row['id'] . ')" class="delete-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                              </svg></button>
+                      </li>
+                  </ul>';
+              }
+            }
               else 
               {
                 echo '<p>You didn\'t get the notification</p>';

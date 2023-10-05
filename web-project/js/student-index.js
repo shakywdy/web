@@ -36,13 +36,10 @@ function delthis(employeeId) {
       employeeId: employeeId
     },
     success: function (response) {
-      // 处理成功响应
+      // success
       $('#message-list li[data-id="' + employeeId + '"]').remove();
       var liCount = $('#message-list li').length;
-
-      // 检查 li 的数量
       if (liCount === 0) {
-        // 没有 li，显示相应的消息
         console.log(liCount);
         $('#message-list').after('<p>You didn\'t get the notification</p>');
       }
