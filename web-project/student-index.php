@@ -2,8 +2,8 @@
 /*
  * @Author: shaky
  * @Date: 2023-09-26 23:45:57
- * @LastEditTime: 2023-10-04 00:58:15
- * @FilePath: \web-project\student-index.php
+ * @LastEditTime: 2023-10-05 14:51:38
+ * @FilePath: /web-project/student-index.php
  * Intimat: jason
  * Copyright (c) 2023 by shakywdy@gmail.com All Rights Reserved. 
  */
@@ -117,33 +117,33 @@ if (isset($_SESSION['user_id'])) {
     <!-- header end -->
 
     <!-- this is a left list -->
+    <div class="left-box">
     <div class="left">
       <div class="leftheader">    
       <img src="hsu-photo/hsulogo.png" >
      </div>
       <div class="left-list">
       <button>
-        <a href="">HOME</a>
+      <a href="">HOME</a>
+        </button>  
+        <button>
+        <a href="">CALENDAR</a>
         </button>
         <button>
-        <a href="">HOME</a>
+        <a href="">LEARNING</a>
         </button>
         <button>
-        <a href="">HOME</a>
+        <a href="">PARTNER</a>
         </button>
-        <button>
-        <a href="">HOME</a>
-        </button>
-
       </div>
       <button class="lgb">
         <a href="">Log out</a>
         </button>
     </div> 
-    
+    </div>
 	 <div class="right">
       <div class="right-main">
-        <iframe src="student-index/student-home.html"></iframe>
+        <iframe src="student-index/student-home.php"></iframe>
       </div>
 
      </div> 
