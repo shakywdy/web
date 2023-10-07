@@ -1,8 +1,8 @@
 /*
  * @Author: shaky
  * @Date: 2023-09-26 23:45:57
- * @LastEditTime: 2023-09-28 11:48:22
- * @FilePath: /web-project/js/student-index.js
+ * @LastEditTime: 2023-10-07 16:14:31
+ * @FilePath: \web-project\js\student-index.js
  * Intimat: jason
  * Copyright (c) 2023 by shakywdy@gmail.com All Rights Reserved. 
  */
@@ -37,15 +37,37 @@ function delthis(employeeId) {
     },
     success: function (response) {
       // success
-      $('#message-list li[data-id="' + employeeId + '"]').remove();
-      var liCount = $('#message-list li').length;
-      if (liCount === 0) {
-        console.log(liCount);
-        $('#message-list').after('<p>You didn\'t get the notification</p>');
-      }
+      // $('#message-list li[data-id="' + employeeId + '"]').remove();
+      // var liCount = $('#message-list li').length;
+      // if (liCount === 0) {
+      //   console.log(liCount);
+      //   $('#message-list').after('<p>You didn\'t get the notification</p>');
+      // }
+       $('#message-box-content').load(location.href + ' #message-box-content');
     },
     error: function (xhr, status, error) {
       console.log("error:" + error);
     }
   });
+}
+
+
+function addfd(userid,fdid) {
+
+  $.ajax({
+    url: "./date-control.php",
+    type: "POST",
+    data: {
+      userid: userid,
+      fdid:fdid
+    },
+    success: function (response) {
+      $('#right-main').load(location.href + ' #right-main');
+    },
+    error: function (xhr, status, error) {
+      console.log("error:" + error);
+    }
+  });
+
+
 }

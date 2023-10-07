@@ -100,7 +100,7 @@
   font-size: 1.5vw;
 }
 
-.right-card svg
+.right-card-svg
 {
  margin-right: auto;
  margin-top: auto;
@@ -111,7 +111,7 @@
 {
 margin: auto;
 }
-.right-card button{
+.sendbutton{
   margin-left: auto;
   height: 100%; 
   width: 50px;
@@ -119,8 +119,20 @@ margin: auto;
   transition: background-color 0.3s ease;
   border: none;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
+.wait{
+  margin-left: auto;
+  height: 100%; 
+  width: 50px;
+  background-color: rgb(153, 153, 153);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .right-card button:hover{
   background-color: rgb(92, 160, 92);
 }
