@@ -11,7 +11,7 @@
   let reg= document.getElementById('reg');
   let form= document.getElementsByClassName('form-box')[0];
   let reg_box = document.getElementsByClassName('register-box')[0];
- let login_box = document.getElementsByClassName('login-box')[0];
+  let login_box = document.getElementsByClassName('login-box')[0];
   ('login-box')[0];
   reg.addEventListener('click',()=>{
       form.style.transform='translateX(80%)';

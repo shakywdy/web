@@ -10,11 +10,11 @@
   
   .left-box{
     height:100vh;
-    width:15%;
+    width:8%;
   }
   .left {
     background-color: rgba(255, 255, 255, 0.214);
-    width: 15%;
+    width: 8%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,25 +26,21 @@
   }
   .leftheader{
     background-color: #ffffff;
-    height: 82px;
+    height: 70px;
     display: flex;
     margin-bottom: 10px;
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
   }
-  .leftheader img{
-    width: 200px;
-    height: 70px;
-    margin: auto;
-  }
+ 
    .left-list{
-    font-size: 25px;
+    font-size: 15px;
  
    }
    .left-list button{
-    height: 80px;
+    height: 50px;
     width: 100%;
     border: none;
-   padding-left: 50px;
+    padding-left: 20px;
     text-align: left;
     background-color: rgba(240, 248, 255, 0);
     transition: background-color 0.3s ease;
@@ -78,14 +74,14 @@
 
   .right {
     display: flex;
-    width: 85%;
+    width: 92%;
     height: 100vh;
     flex-direction: column;
     position: relative;
   }
   /* header */
   .top {
-    height: 82px;
+    height: 70px;
     display: flex;
     position: fixed;
     top: 0;
@@ -104,7 +100,6 @@
     width: 20%;
     margin-right: auto;
     display: flex;
-
     background-color: #996600;
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
   }
@@ -112,11 +107,22 @@
     height: 100%;
     width: 100%;
     margin-left: auto;
+    display: inline-block;
     border: none;
+    position: relative;
     color: #ffffff;
     background-color: #99660000;
     transition: background-color 0.3s ease;
   }
+  .message-button div{
+    position: absolute;
+    background-color: crimson;
+    width: 30px;
+    border-radius: 50%;
+    top: 8px;   /* 距离顶部的偏移量 */
+    right: 55px;
+  }
+  
 
   .message-button:hover{
     background-color: #c0c0c09a;
@@ -124,36 +130,42 @@
   /* .message-box */
   .message-box {
     margin-top: 8px;
-    height: 500px; 
-    width: 400px;
-    background-color: rgb(255, 255, 255);
-    border: #5b5b5b solid;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+    height: 600px; 
+    width: 450px;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.6);
     position: absolute;
+    background-color: #edeff3;
     transform: translate(-50%, -50%); 
+    border-radius: 10px;
     display: none;
     flex-direction: column;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
   .message-box-header {
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    border-bottom: 1px solid #000000; 
-  }
-  
-  .message-box-header p {
+    font-size: 20px;
+    height: 10%;
+    width: 100%;
     margin: auto;
-  
+    margin-bottom: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: flex;
+    background-color: #ffffff;
+    color: #414452;
+    font-weight: bold;
   }
-  
+  .message-box-header span{
+    width: 70%;
+    margin: auto;
+
+  }
   .close-button {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 100%;
     border: none;
+ 
+    margin-left: auto;
     background-color: #00000000;
     transition: background-color 0.3s ease;
   }
@@ -163,11 +175,20 @@
   }
   
   .message-box-content {
-    background-color: #efefef;
+
     overflow: auto;
+    width: 90%;
+    margin: auto;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
+  }
+  .me-time{
+    text-align: center;
+    margin: 8px;
+    font-size: 18px;
+    color: #727580;
   }
 
   .message-box-content ul {
@@ -176,35 +197,59 @@
     margin: 0;   
    
   }
-  .message-box-content  p{
-    font-size: 25px;
-    margin: auto;
 
-  }
   .message-box-content li {
-    color: #000000;
     background-color: rgb(255, 255, 255);
     padding: 10px;
     display: flex;
-    border-bottom: 1px solid #000000; 
-    max-height: 100px;
-    height: 100px;
+    border-radius: 10px;
+    max-height: 300px;
+    min-height: 190px;
     word-wrap: break-word; 
     word-break: break-word; 
+ 
   }
-  .message-box-content li div{
-  width: 90%;
-  }
-  .message-box-content li span {
-      color: rgb(37, 138, 254);
+    .me-content {
+      width: 100%;
+      font-size: 18px;
+      min-height: 100%;
+      max-height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .me-text {
+      margin-top: 5px;
+      height: 80%;
+      flex-wrap: wrap;
+      overflow: auto;
+    }
+  
+    .me-from {
+      color: rgb(0, 0, 0);
       display: inline-block;
       width: 100%;
-     
-  }
+      margin: auto;
+    
+      font-size: 20px;
+  
+    }
+    .me-from span{
+      color: #325e90;
+      font-weight: bold;
+    }
+    .message-box-content p{
+     font-size: 30px;
+     margin: auto;
+    }
+    .button-container{
+      display: flex;
+      flex-direction: row-reverse;
+    }
   .delete-button{
-    margin-left: auto;
-    width: 30px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
     border: none;
     background-color: #e5e5e5;
     transition: background-color 0.3s ease;
@@ -213,10 +258,10 @@
     background-color: #706f6f;
   }
   .okbutton{
-    margin-left: auto;
-    width: 30px;
-    height: 80px;
-    margin-right: 5px;
+
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
     border: none;
     background-color: #87fc75;
     transition: background-color 0.3s ease;
@@ -225,10 +270,10 @@
     background-color:#4f9d43;
   }
   .nobutton{
-    margin-left: auto;
-    width: 30px;
-    height: 80px;
-    margin-right: 5px;
+
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
     border: none;
     background-color: #fc6a4d;
     transition: background-color 0.3s ease;
@@ -250,9 +295,7 @@
     overflow-y: auto;
     height: 100%;
     width: 100%;
-    padding-top: 80px; 
-
-
+    padding-top: 70px; 
     box-sizing: border-box;
   }
   .right-main iframe{

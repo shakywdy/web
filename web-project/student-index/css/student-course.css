@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+   min-height: 100vh;
+  }
+  .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.left{
+    height: 99vh;
+    width: 25%;
+    background-color: #fdfbfb;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
